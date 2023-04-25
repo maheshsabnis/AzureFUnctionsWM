@@ -68,5 +68,30 @@
 		- Deploy the FUnction
 		
 
-			
+# USing Functions as an OPtiona for REST APIs
+- HttpTrigger (.NET 6 LTS)
+	- Activate the function when the HTTP Request is Received
+	- USes The 'HttpRequest' Object
+		- Provides Mechansism for following
+			- Detecting Http Request Method
+			- The Facility to Read the Query Parameter
+				- HttpRequest.Query[""]
+			- Route
+				- The URL Route
+- dotnet add package Microsoft.EntityFrameworkCore.Tools -v 6.0.13
+- dotnet add package Microsoft.EntityFrameworkCore -v 6.0.13
+- dotnet add package Microsoft.EntityFrameworkCore.Relational -v 6.0.13
+- dotnet add package Microsoft.EntityFrameworkCore.SqlServer -v 6.0.13
+- dotnet add package Microsoft.EntityFrameworkCore.Tools -v 6.0.13
+- dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.13
+
+- MAke sure that the dotnet EF Tool is globally Installed using followign command
+
+dotnet tool install --global dotnet-ef
+
+Exit from all open command prompt ad then Restart the COmmand Prompt	
+
+- EF COre Db First Apprach for Scaffolding
+
+ dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI" Microsoft.EntityFrameworkCore.SqlServer -o Models
 
