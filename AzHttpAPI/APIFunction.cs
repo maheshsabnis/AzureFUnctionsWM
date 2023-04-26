@@ -14,9 +14,19 @@ namespace AzHttpAPI
 {
     public  class APIFunction
     {
-        IServices<Department,int> deptServ = new DepartmentService();
-         
-        ResponseObject<Department> response = new ResponseObject<Department>(); 
+        // IServices<Department,int> deptServ = new DepartmentService();
+
+        IServices<Department, int> deptServ;
+        MessagingClient queueMessageClient = new MessagingClient();
+        ResponseObject<Department> response = new ResponseObject<Department>();
+        /// <summary>
+        /// Inject the dependency 
+        /// </summary>
+        /// <param name="deptServ"></param>
+        public APIFunction(IServices<Department, int> deptServ)
+        {
+            this.deptServ = deptServ;
+        }
 
         [FunctionName("GET")]
         public  async Task<IActionResult> GET(
@@ -46,6 +56,9 @@ namespace AzHttpAPI
             var dept = JsonSerializer.Deserialize<Department>(bodyData);
             response = await deptServ.CreateAsync(dept);
 
+            // When the Data is Saved in Department Table, write that data in Queue 
+            // SO that other Function can access it for further processing
+            await queueMessageClient.AddMessageAsync(JsonSerializer.Serialize(response.Record));
             return new OkObjectResult(response);
         }
 

@@ -10,8 +10,14 @@ namespace AzHttpAPI.Services
 {
     public class DepartmentService : IServices<Department, int>
     {
-        CompanyContext context = new CompanyContext();
+        // CompanyContext context = new CompanyContext();
+        CompanyContext context;
         ResponseObject<Department> resonse = new ResponseObject<Department>();
+
+        public DepartmentService(CompanyContext context)
+        {
+            this.context = context;
+        }
 
         async Task<ResponseObject<Department>> IServices<Department, int>.CreateAsync(Department entity)
         {

@@ -66,6 +66,8 @@
 
 		- FInally Write the Code
 		- Deploy the FUnction
+
+
 		
 
 # USing Functions as an OPtiona for REST APIs
@@ -95,3 +97,12 @@ Exit from all open command prompt ad then Restart the COmmand Prompt
 
  dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI" Microsoft.EntityFrameworkCore.SqlServer -o Models
 
+- TO use the  Following Azure Sorage Services
+	- Table
+	- BLOB
+	- Queue
+- We need to install  following pakages in the Project
+	- Azure.Storage.Common
+	- Azure.Storage.Queues, Queue STorage
+	- Azure.Storage.Tables, Table Storage
+	- Azure.Storage.Blobs, Blob Storage

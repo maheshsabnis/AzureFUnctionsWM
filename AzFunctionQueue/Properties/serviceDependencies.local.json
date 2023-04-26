@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "appInsights1": {
+      "type": "appInsights.sdk"
+    },
+    "storage1": {
+      "type": "storage.emulator",
+      "connectionId": "AzureWebJobsStorage"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "storage2": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/msitstorageaccount",
+      "type": "storage.azure",
+      "connectionId": "DefaultEndpointsProtocol=https;AccountName=msitstorageaccount;AccountKey=HCB2Oc6LHBMA7FAiSu9JAyAorap+nFYh7lzfxPUXyL8jWcPZa84YY1eeI0hETp5fYWUGS4yXL/DA+AStyqbTDA==;EndpointSuffix=core.windows.net",
+      "dynamicId": null
+    }
+  }
+}
