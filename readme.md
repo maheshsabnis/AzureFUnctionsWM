@@ -106,3 +106,12 @@ Exit from all open command prompt ad then Restart the COmmand Prompt
 	- Azure.Storage.Queues, Queue STorage
 	- Azure.Storage.Tables, Table Storage
 	- Azure.Storage.Blobs, Blob Storage
+
+- Azure Function USer Case
+	- Deployment
+	- Security
+		 - Providing the FUncation Access based on the Key
+			- Admin aka master
+			- Function (Default)
+		- Function Accessibility from Client Apps with Autentication
+			- 
